@@ -22,6 +22,13 @@ class Spaceship {
     this.propulsion = rocket;
     console.log('Propultion is mounted!');
   }
+  takeoff(){
+    if (this.propulsion.fire()){
+      console.log('RRRRRRRR-SHHHHHHHHHH')
+    } else {
+      console.log('Take off was unsuccessful')
+    }
+  }
 }
 
 module.exports = {

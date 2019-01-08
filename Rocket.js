@@ -5,12 +5,12 @@ class Rocket {
 
   addFuel(fuel){
     this.fuel += fuel;
-    console.log(`Fuel amount is ${this.fuel}`)
+    console.log(`Current fuel amount is ${this.fuel}`)
   }
 
   fire(){
     if (this.fuel > 0){
-      this.fuel -= 1;
+      this.fuel--;
       console.log('Engines have been fired!');
       console.log(`Fuel amount is ${this.fuel}`);
       return true;

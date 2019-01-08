@@ -8,17 +8,19 @@ let crewNames = ['Ben','John','Sam'];
 
 let ourShip = new Spaceship('Thunder');
 
-let launchpad = (ship) => {
+let rocket = new Rocket();
+
+let launchpad = (spaceship,rocket,crew) => {
   console.log('Initiating preflight procedures!');
-  console.log(`Welcome aboard the ${ship.name}!\n`);
-  let crew = trainCrew(crewNames);
-  ship.loadCrew(crew);
-  let captain_name = ship.captain().name;
-  console.log(`${captain_name} is the captain!`);
-  let rocket = new Rocket();
-  rocket.addFuel(2);
-  rocket.fire();
-  ship.mountPropulsion();
+  console.log(`Welcome aboard the ${spaceship.name}!\n`);
+
+  let trainedCrew = trainCrew(crew);
+  spaceship.loadCrew(trainedCrew);
+  let captain_name = spaceship.captain().name;
+  console.log(`\n${captain_name} is the captain!\n`);
+  rocket.addFuel(1);
+  spaceship.mountPropulsion(rocket);
+  spaceship.takeoff();
 };
 
 
@@ -32,12 +34,4 @@ let trainCrew = (arr) => {
   return list;
 };
 
-launchpad(ourShip);
-
-
-
-// let rocket = new Rocket();
-//
-// rocket.addFuel(2);
-//
-// rocket = launchpad(rocket);
+launchpad(ourShip, rocket, crewNames);
