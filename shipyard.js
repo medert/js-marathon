@@ -3,10 +3,24 @@ const { Spaceship } = require("./Spaceship.js");
 const { CrewMember } = require("./CrewMember.js");
 const { Rocket } = require("./Rocket.js");
 
+
+let crewNames = ['Ben','John','Sam'];
+
+let ourShip = new Spaceship('Thunder');
+
 let launchpad = (ship) => {
   console.log('Initiating preflight procedures!');
-  console.log(`Welcome aboard the ${ship.name}!`);
+  console.log(`Welcome aboard the ${ship.name}!\n`);
+  let crew = trainCrew(crewNames);
+  ship.loadCrew(crew);
+  let captain_name = ship.captain().name;
+  console.log(`${captain_name} is the captain!`);
+  let rocket = new Rocket();
+  rocket.addFuel(2);
+  rocket.fire();
+  ship.mountPropulsion();
 };
+
 
 let trainCrew = (arr) => {
   let list = [];
@@ -18,20 +32,12 @@ let trainCrew = (arr) => {
   return list;
 };
 
-let crewNames = ['Ben','John','Sam'];
-
-let ourShip = new Spaceship('Thunder');
-
 launchpad(ourShip);
 
-let crew = trainCrew(crewNames);
 
-ourShip.loadCrew(crew);
 
-let captain = ourShip.captain().name;
-
-console.log(`${captain} is the captain!`);
-
-let rocket = new Rocket();
-
-rocket.addFuel(2);
+// let rocket = new Rocket();
+//
+// rocket.addFuel(2);
+//
+// rocket = launchpad(rocket);

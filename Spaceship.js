@@ -2,6 +2,7 @@ class Spaceship {
   constructor(name){
     this.name = name;
     this.crew = [];
+    this.propulsion = null;
   }
 
   captain(){
@@ -15,6 +16,11 @@ class Spaceship {
       this.crew.push(item);
       console.log(`${item.name} is now aboard the Waverider.`);
     });
+  }
+
+  mountPropulsion(rocket){
+    this.propulsion = rocket;
+    console.log('Propultion is mounted!');
   }
 }
 

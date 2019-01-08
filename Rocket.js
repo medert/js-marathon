@@ -5,7 +5,19 @@ class Rocket {
 
   addFuel(fuel){
     this.fuel += fuel;
-    console.log(`Fuel level is ${this.fuel}`)
+    console.log(`Fuel amount is ${this.fuel}`)
+  }
+
+  fire(){
+    if (this.fuel > 0){
+      this.fuel -= 1;
+      console.log('Engines have been fired!');
+      console.log(`Fuel amount is ${this.fuel}`);
+      return true;
+    } else {
+      console.log("Engines have failed to fire!");
+      return false;
+    }
   }
 }
 
